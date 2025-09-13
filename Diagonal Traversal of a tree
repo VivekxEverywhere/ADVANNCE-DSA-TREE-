@@ -1,0 +1,29 @@
+Given a Binary Tree, return the diagonal traversal of the binary tree.
+
+Consider lines of slope -1 passing between nodes. Given a Binary Tree, return a single list containing all diagonal elements in a binary tree belonging to same line.
+If the diagonal element are present in two different subtrees then left subtree diagonal element should be taken first and then right subtree. 
+
+
+
+
+class Tree
+{
+     public ArrayList<Integer> diagonal(Node root)
+      {
+           //add your code here.
+           ArrayList<Integer> ans = new ArrayList<>();
+           Queue<Node> q = new LinkedList<>();
+           q.add(root);
+           while(q.size()>0){
+               Node curr = q.remove();
+               while(curr !=null){
+                   ans.add(curr.data);
+                    if(curr.left !=null){
+                        q.add(curr.left);
+                    }
+                    curr = curr.right;
+               }
+           }
+           return ans;
+      }
+}
